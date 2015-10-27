@@ -1,0 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+package game;
+
+
+public class World {
+    static DataFile dataFile = new DataFile();
+    private static String[] worldArray;
+    private static void getWorld() {
+        worldArray = DataFile.world;
+    }
+    public static boolean isTileSolid(int x,int y) {
+        boolean isSolid;
+        isSolid =  worldArray[(y*dataFile.height)+x].contains("isSolid;");
+        return(isSolid);
+    }
+}
