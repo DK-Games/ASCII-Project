@@ -1,0 +1,18 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package game;
+
+
+public class Reference {
+    
+    public static final String SaveFilePath = "save.txt";
+    public static final int SCREEN_HEIGHT = 40;
+    public static final int SCREEN_WIDHT = 100;
+    public static final int MAP_TOTAL=10000;
+    public static final int EQUIP_TOTAL=100;
+    public static final int NUM_EQUIP=100;
+    public static final int NUM_STATS=100;
+}
