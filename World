@@ -18,4 +18,28 @@ public class World {
         isSolid =  worldArray[(y*dataFile.height)+x].contains("isSolid;");
         return(isSolid);
     }
+    public static boolean isTileElectrified(int x,int y) {
+        boolean isTrap;
+        isTrap =  worldArray[(y*dataFile.height)+x].contains("isElectrified;");
+        return(isTrap);
+    }
+    public static boolean isTrap(int x,int y) {
+        boolean isTrap;
+        isTrap =  worldArray[(y*dataFile.height)+x].contains("isTrap;");
+        return(isTrap);
+    }
+    public static char[] getWorldDisplay() {
+        char[] worldImage= new char[dataFile.height*dataFile.width];
+        for(int i =0; i<(dataFile.height*dataFile.width)-1;i++)
+        {
+            worldImage[i] = worldArray[i].charAt(worldArray[i].indexOf("Tile:")+5);
+        }
+        return worldImage;
+    }
+     public static char getTile(int x, int y) {
+        char worldImage=' ';
+            worldImage = worldArray[x+(y*dataFile.height)].charAt(worldArray[dataFile.height].indexOf("Tile:")+5);
+        
+        return worldImage;
+    }
 }
