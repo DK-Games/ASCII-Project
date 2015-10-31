@@ -1,0 +1,98 @@
+/*
+ * Kelvin Ratsamany
+ * 10-26-2015
+ *
+ */
+package game;
+
+
+public class Polygons {
+    
+    private int[] x = new int[1], 
+                  y = new int[1];
+    private char charToPrint = ' ';
+    
+    public void setCharToPrint(char charToPrint){
+        this.charToPrint = charToPrint;
+    }
+    
+    public void addPoint(int pointNum, int x, int y){
+        int[] tempX, tempY;
+
+        if(pointNum > this.x.length){
+            tempX = new int[this.x.length + 1];
+            tempY = new int[this.y.length + 1];
+        } else{
+            tempX = new int[this.x.length];
+            tempY = new int[this.y.length];
+        }
+        
+        for(int i = 0; i < this.x.length; i++){
+            tempX[i] = this.x[i];
+            tempY[i] = this.y[i];
+        }
+        
+        tempX[pointNum - 1] = x;
+        tempY[pointNum - 1] = y;
+        this.x = tempX;
+        this.y = tempY;
+    }
+    
+    public void removePoint(int pointNum){
+        int[] tempX = new int[x.length - 1], 
+              tempY = new int[y.length - 1];
+        
+        int c = 0;
+        for(int i = 0; i < x.length; i++){
+            if(i != pointNum - 1){
+                tempX[c] = x[i];
+                tempY[c] = y[i];
+                c++;
+            }
+        }
+        x = tempX;
+        y = tempY;
+    }
+
+    public void drawLine(int pointOne, int pointTwo, int xOffSet, int yOffSet){
+        double deltaX = x[pointTwo - 1] - x[pointOne - 1], 
+               deltaY = y[pointTwo - 1] - y[pointOne - 1];
+        int width = (int)(Math.abs(deltaX) + 1),
+            height = (int)(Math.abs(deltaY) + 1);
+        char[] line = new char[width*height];;
+        
+        for(int i = 0; i < line.length; i++)
+            line[i] = '₧';
+        
+    
+        if(deltaX != 0)
+        for(int x = 0; x < width; x++){
+            int y = (int)((deltaY/deltaX)*x);
+            line[y*width + x] = charToPrint;
+        }
+        
+        if(deltaY != 0){
+            int x = 0;
+            for(int y = 0; y < height; y++){
+                if(deltaX != 0){
+                    x = (int)(y/(deltaY/deltaX));
+                    line[y*width + x] = charToPrint;
+                } else{
+                    line[y*width + x] = charToPrint;
+                }
+            }
+        }
+        for(int x = 0; x < width; x++){
+            int y = (int)((deltaY/deltaX)*x);
+            line[y*width + x] = charToPrint;
+        }
+        
+        Screen.addToFrame(line, height, width, xOffSet, yOffSet);
+    }
+    
+    
+    
+    public void printPointCoords(int pointNum){
+        System.out.println(x[pointNum - 1] + " " + y[pointNum - 1]);
+    }
+}
