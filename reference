@@ -7,12 +7,11 @@ package game;
 
 
 public class Reference {
-    
-    public static final String SaveFilePath = "save.txt";
-    public static final int SCREEN_HEIGHT = 40;
-    public static final int SCREEN_WIDHT = 100;
+    public static final String SAVE_FILE_PATH = "save.txt";
     public static final int MAP_TOTAL=10000;
     public static final int EQUIP_TOTAL=100;
-    public static final int NUM_EQUIP=100;
-    public static final int NUM_STATS=100;
+    public static final int SCREEN_HEIGHT=40;
+    public static final int SCREEN_WIDTH=100;
+    public static final int NUM_STATS=8;
+    public static final int NUM_EQUIP=8;
 }
