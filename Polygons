@@ -59,7 +59,7 @@ public class Polygons {
                deltaY = y[pointTwo - 1] - y[pointOne - 1];
         int width = (int)(Math.abs(deltaX) + 1),
             height = (int)(Math.abs(deltaY) + 1);
-        char[] line = new char[width*height];;
+        char[] line = new char[width*height];
         
         for(int i = 0; i < line.length; i++)
             line[i] = '₧';
