@@ -15,22 +15,22 @@ public class World {
     }
     public static boolean isTileSolid(int x,int y) {
         boolean isSolid;
-        isSolid =  worldArray[(y*dataFile.height)+x].contains("isSolid;");
+        isSolid =  worldArray[(y*dataFile.getHeight())+x].contains("isSolid;");
         return(isSolid);
     }
     public static boolean isTileElectrified(int x,int y) {
         boolean isTrap;
-        isTrap =  worldArray[(y*dataFile.height)+x].contains("isElectrified;");
+        isTrap =  worldArray[(y*dataFile.getHeight())+x].contains("isElectrified;");
         return(isTrap);
     }
     public static boolean isTrap(int x,int y) {
         boolean isTrap;
-        isTrap =  worldArray[(y*dataFile.height)+x].contains("isTrap;");
+        isTrap =  worldArray[(y*dataFile.getHeight())+x].contains("isTrap;");
         return(isTrap);
     }
     public static char[] getWorldDisplay() {
-        char[] worldImage= new char[dataFile.height*dataFile.width];
-        for(int i =0; i<(dataFile.height*dataFile.width)-1;i++)
+        char[] worldImage= new char[dataFile.getHeight()*dataFile.getWidth()];
+        for(int i =0; i<(dataFile.getHeight()*dataFile.getWidth())-1;i++)
         {
             worldImage[i] = worldArray[i].charAt(worldArray[i].indexOf("Tile:")+5);
         }
@@ -38,7 +38,7 @@ public class World {
     }
      public static char getTile(int x, int y) {
         char worldImage=' ';
-            worldImage = worldArray[x+(y*dataFile.height)].charAt(worldArray[dataFile.height].indexOf("Tile:")+5);
+            worldImage = worldArray[x+(y*dataFile.getHeight())].charAt(worldArray[dataFile.getHeight()].indexOf("Tile:")+5);
         
         return worldImage;
     }
