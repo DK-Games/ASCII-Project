@@ -8,13 +8,12 @@ import java.io.*;
 import java.util.*;
 
 public class DataFile {
-    static Reference reference = new Reference();
 
-    static String[] world= new String[reference.MAP_TOTAL],
-            entities = new String[reference.MAP_TOTAL];
+    static String[] world= new String[Reference.MAP_TOTAL],
+            entities = new String[Reference.MAP_TOTAL];
     static String[][] player = new String[4][1000];
     
-    static File file =  new File(reference.SAVE_FILE_PATH);
+    static File file =  new File(Reference.SAVE_FILE_PATH);
     private static int height=0,
                        width=0,
                        cHeight=0,
@@ -38,9 +37,9 @@ public class DataFile {
         this.magic = Integer.parseInt(player[0][7]);
     }
     public static void set() {
-        player[0]=new String[reference.NUM_STATS];
-        player[1]=new String[reference.NUM_EQUIP];
-        player[2]=new String[reference.EQUIP_TOTAL+1];
+        player[0]=new String[Reference.NUM_STATS];
+        player[1]=new String[Reference.NUM_EQUIP];
+        player[2]=new String[Reference.EQUIP_TOTAL+1];
     }
     public static void worldDim ( ) {
         world = new String[(height*width)];
@@ -82,7 +81,7 @@ public class DataFile {
             FileOutputStream writer;	
             writer = new FileOutputStream (file);
             file.delete();
-            file = new File(reference.SAVE_FILE_PATH);
+            file = new File(Reference.SAVE_FILE_PATH);
             new PrintStream(writer).print (height+" ");
             new PrintStream(writer).print(width+" ");
             new PrintStream(writer).print (cHeight+" ");
@@ -114,17 +113,17 @@ public class DataFile {
             int i=0;
             while(n<4)
             {
-                while(i<reference.NUM_STATS&&n<1)
+                while(i<Reference.NUM_STATS&&n<1)
                 {
                     new PrintStream(writer).print(player[n][i]+" ");
                     i++;
                 }
-                while(n<2&&i<reference.NUM_EQUIP)
+                while(n<2&&i<Reference.NUM_EQUIP)
                 {
                     new PrintStream(writer).print(player[n][i]+" ");
                     i++;
                 }
-                while(i<reference.EQUIP_TOTAL&&n==2)
+                while(i<Reference.EQUIP_TOTAL&&n==2)
                 {
                     new PrintStream(writer).print(player[n][i]+" ");
                     i++;
@@ -175,17 +174,17 @@ public class DataFile {
             int i=0;
           while(n<3)
           {
-              while(n<1&&i<reference.NUM_STATS)
+              while(n<1&&i<Reference.NUM_STATS)
               {
               player[n][i]=reader.next();
               i++;
               }
-              while(n<2&&i<reference.NUM_EQUIP)
+              while(n<2&&i<Reference.NUM_EQUIP)
               {
               player[n][i]=reader.next();
               i++;
               }
-              while(n==2&&i<reference.EQUIP_TOTAL)
+              while(n==2&&i<Reference.EQUIP_TOTAL)
               {
                     player[n][i]=reader.next();
                     i++;
@@ -258,17 +257,17 @@ public class DataFile {
               i=0;
           while(n<3)
           {
-              while(n<1&&i<reference.NUM_STATS)
+              while(n<1&&i<Reference.NUM_STATS)
               {
               player[n][i]=reader.next();
               i++;
               }
-               while(n<2&&i<reference.NUM_EQUIP)
+               while(n<2&&i<Reference.NUM_EQUIP)
               {
               player[n][i]=reader.next();
               i++;
               }
-              while(n==2&&i<reference.EQUIP_TOTAL)
+              while(n==2&&i<Reference.EQUIP_TOTAL)
               {
                     player[n][i]=reader.next();
                     i++;
