@@ -15,9 +15,7 @@ public class DataFile {
     
     static File file =  new File(Reference.SAVE_FILE_PATH);
     private static int height=0,
-                       width=0,
-                       cHeight=0,
-                       cWidth=0;
+                       width=0;
     public static int   health=0,
                         mana=0,
                         totalMana=0,
@@ -60,21 +58,7 @@ public class DataFile {
     public int getHeight() {
         return(height);
     }
-    public void setCHeight(int height){
-        this.cHeight = cHeight;
-    }
-    
-    public void setCWidth(int width){
-        this.cWidth = cWidth;
-    }
-    
-    public int getCWidth() {
-        return(cWidth);
-    }
-    
-    public int getCHeight() {
-        return(cHeight);
-    }
+
     public static void saveFile() {     
         try {
             set();
